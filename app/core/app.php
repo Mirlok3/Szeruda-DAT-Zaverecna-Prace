@@ -32,7 +32,7 @@ Class App
         $this->params = array_values($url);
 
         // Run the class method:
-        call_user_func([$this->controller, $this->method], $this->params);
+        call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
     /* splitURL Returns:
@@ -45,7 +45,7 @@ Class App
     */
     private function splitURL()
     {
-        return explode("/", filter_var(trim($_GET['url'], "/"), FILTER_SANITIZE_URL)); // explode url and if there's a / trim it and sanitize
-
+        $url = isset($_GET['url']) ? $_GET['url'] : "home"; // If there is nothing in the url assign "home"
+        return explode("/", filter_var(trim($url, "/"), FILTER_SANITIZE_URL)); // explode url and if there's a / trim it and sanitize
     }
 }
