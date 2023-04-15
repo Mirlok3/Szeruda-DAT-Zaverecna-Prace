@@ -8,25 +8,34 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETS ?>css/style.css">
     <title><?= $data['page_title'] . " - " . WEBSITE_NAME ?></title>
 </head>
 <body>
     <header class="justify-between blue">
         <div>
-            <h2>Necoddd</h2>
+            <h2><?= WEBSITE_NAME ?></h2>
         </div>
 
         <ul class="links">
-            <li><a href="<?= ROOT ?>index" class="<?php active('index');?> nav-link" >Home</a></li>
-            <li><a href="<?= ROOT ?>posts" class="<?php active('posts');?> nav-link">Posts</a></li>
-            <li><a href="<?= ROOT ?>form" class="<?php active('form');?> nav-link" >Form</a></li>
-            <div class="main-links white">
-                <li><a href="<?= ROOT ?>authentication/register"
-                       class="<?php active('register'); ?> f-black nav-link">Registrovat</a>
-                <li><a href="<?= ROOT ?>authentication/login"
-                       class="<?php active('login'); ?> f-black nav-link">Příhlásit se</a>
-            </div>
+            <li><a href="<?= ROOT ?>index" class="<?php active('index');?> nav-link" >Domů</a></li>
+            <li><a href="<?= ROOT ?>posts" class="<?php active('posts');?> nav-link">Příspěvek</a></li>
+            <li><a href="<?= ROOT ?>form" class="<?php active('form');?> nav-link" >Vytvořit příspěvek</a></li>
+            <?php if(isset($_SESSION['username'])): ?>
+                <div class="main-links white">
+                    <li><a href="<?= ROOT ?>#"
+                           class="<?php active('#'); ?> f-black nav-link"><?= $_SESSION['username'] ?></a>
+                    <li><a href="<?= ROOT ?>authentication/logout"
+                           class="<?php active('logout'); ?> f-black nav-link">Odhlásit se</a>
+                </div>
+            <?php else: ?>
+                <div class="main-links white">
+                    <li><a href="<?= ROOT ?>authentication/register"
+                           class="<?php active('register'); ?> f-black nav-link">Registrovat</a>
+                    <li><a href="<?= ROOT ?>authentication/login"
+                           class="<?php active('login'); ?> f-black nav-link">Příhlásit se</a>
+                </div>
+            <?php endif; ?>
         </ul>
     </header>
     <section class="main dark">

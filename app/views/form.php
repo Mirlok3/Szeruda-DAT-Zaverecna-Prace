@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+<?php $this->view("header", $data); ?>
 <div class="form post-form">
     <form action="">
         <h2 class="text-center title-form">Vytvořte příspevěk</h2>
@@ -16,7 +16,7 @@
             <label for="description">Obsah:</label>
             <textarea name="description" rows="10" class="input textarea" required></textarea>
         </div>
-        <button type="text" class="submit">SUBMIT</button>
+        <button type="text" class="submit">Vytvořit</button>
     </form>
 </div>
-<?php include("footer.php"); ?>
+<?php $this->view("footer", $data); ?>

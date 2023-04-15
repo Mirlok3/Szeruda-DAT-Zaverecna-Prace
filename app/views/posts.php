@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+<?php $this->view("header", $data); ?>
 <?php foreach ( $data['posts'] as $post ): ?>
     <div class="post">
         <h2 class="post-title"><?= $post['title'] ?></h2>
@@ -7,4 +7,4 @@
         </p>
     </div>
 <?php endforeach; ?>
-<?php include("footer.php"); ?>
+<?php $this->view("footer", $data); ?>
