@@ -1,6 +1,6 @@
 <?php
 
-define("WEBSITE_NAME", "Szeruda Album");
+define("WEBSITE_NAME", "Szeruda");
 
 define('DB_TYPE', 'mysql');
 define('DB_NAME', 'szeruda_album');

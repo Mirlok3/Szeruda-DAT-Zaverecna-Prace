@@ -1,0 +1,347 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@500&family=Schibsted+Grotesk:wght@500&display=swap');
+/*
+font-family: 'Chivo Mono', monospace;
+font-family: 'Schibsted Grotesk', sans-serif;
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark light;
+  font-size: 16px;
+  overflow-y: overlay; // TODO: Deprecated but does the job of scroll not affecting width
+  /* postcss-scrollbar will add the -webkit version automatically! */
+}
+
+body {
+  font-family: 'Schibsted Grotesk', sans-serif;
+  background: #242424;
+  min-height: 100vh;
+  color: white;
+}
+
+/* responsive images/videos */
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: lawngreen;
+  transition: all 200ms ease-in-out 0s;
+  cursor: pointer;
+}
+
+/* Classes ////////////////////////////////////////////////////////////////////////////////////////////////// */
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gradient {
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(69, 214, 202));
+}
+
+.blue {
+  background-color: dodgerblue;
+}
+
+.orange{
+  background-color: orangered;
+}
+
+.dark {
+  background-color: #121212;
+}
+
+.white {
+  background-color: whitesmoke;
+}
+
+.active, .home-active {
+  color: lawngreen;
+}
+
+.active:hover::before {
+  transform: scaleX(0);
+}
+
+.f-black {
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.border-bottom {
+  border-bottom: 0.5px gray solid;
+}
+
+/* Header ////////////////////////////////////////////////////////////////////////////////////////////////// */
+header{
+  min-height: 10vh;
+  letter-spacing: 5px;
+  color: white;
+  padding: 1em 9%;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header li{
+  list-style: none;
+  display: inline-block;
+  padding-inline: .5em;
+}
+
+header li a{
+  letter-spacing: 1px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.35rem;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: lawngreen;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+/*Main links TODO: The two link break at small width */
+.main-links {
+  padding-bottom: .1em;
+  border-radius: 25px;
+}
+
+a.f-black:hover, a.f-black.active {
+  color: #303BF2;
+}
+
+a.f-black::before {
+  background-color: #303BF2;
+}
+
+.nav-link:hover::before, .nav-link:focus::before {
+  transform: scaleX(1);
+}
+/* Main ////////////////////////////////////////////////////////////////////////////////////////////////// */
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 90vh;
+  padding: 7em 20vw;
+  word-wrap: break-word;
+}
+
+.main h2 {
+  text-align: center;
+  padding-bottom: 15px;
+}
+/* Form ////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.form {
+  background-color: #242424;
+  border-radius: 25px;
+  padding: 0 1.5em 1.5em;
+  border: gray 0.5px solid;
+  min-width: 25vw;
+}
+
+.post-form {
+  min-width: 45vw;
+}
+
+.login {
+  min-width: 20vw;
+}
+
+.title-form {
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  margin: .4em;
+  padding: .4em 0 .4em 0;
+}
+
+.input {
+  background: #121212;
+  border-radius: 15px;
+  padding: .75em;
+  color: white;
+  border: dodgerblue 1px solid;
+}
+
+.input:hover {
+  border: white 1px solid;
+}
+
+.textarea {
+  resize: vertical;
+  font-size: 1.1rem;
+}
+
+.select {
+  width: 45.5%;
+}
+
+.row-input {
+  max-width: 37.5vw;
+}
+
+.row-input-lg {
+  min-width: 17vw;
+  max-width: 40vw;
+}
+
+.file-input {
+  max-height: 55%;
+}
+
+label {
+  padding-left: .5em;
+  padding-bottom: .5em;
+}
+
+.form-message {
+  font-size: .8rem;
+  padding: 0.5em 1em;
+  color: gray;
+}
+
+.submit {
+  background: #121212;
+  margin-top: 1em;
+  border-radius: 15px;
+  margin-left: .5em;
+  padding: .75em;
+  color: white;
+  border: dodgerblue 1px solid;
+  font-family: 'Chivo Mono', monospace;
+  letter-spacing: .75px;
+}
+
+.submit:hover, .submit:focus {
+  background: dodgerblue;
+  transition: all 300ms ease-in-out 0s;
+  cursor: pointer;
+}
+
+/* Post ////////////////////////////////////////////////////////////////////////////////////////////////// */
+.post {
+  background-color: #242424;
+  border-radius: 25px;
+  padding: 2em 3em 3em;
+  margin: 2em;
+  border: gray 0.5px solid;
+  min-width: 60vw;
+}
+
+/* Footer ////////////////////////////////////////////////////////////////////////////////////////////////// */
+footer {
+  padding: 2em;
+  box-shadow: 3px 0 12px black;
+  min-height: 10vh;
+}
+
+footer ul li{
+  list-style: none;
+}
+
+/* Waves ////////////////////////////////////////////////////////////////////////////////////////////////// */
+.top-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.top-wave svg, .bottom-wave svg{
+  position: relative;
+  display: block;
+  width: calc(118% + 1.3px);
+  height: 42px;
+}
+
+.bottom-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.top-wave .shape-fill, .bottom-wave .shape-fill{
+  fill: dodgerblue;
+}
+
+/* Mobile ////////////////////////////////////////////////////////////////////////////////////////////////// */
+@media (max-width: 480px) {
+  .form {
+    width: 100vw;
+  }
+
+  /*header h2{
+    display: none;
+  }*/
+
+  header.justify-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+
+  header li{
+    list-style: none;
+    display: inline-block;
+    padding-inline: .15em;
+  }
+
+  .top-wave svg, .bottom-wave svg{
+    width: calc(140% + 1.30px);
+    height: 20px;
+  }
+
+  .post {
+    min-width: 100vw;
+  }
+}
