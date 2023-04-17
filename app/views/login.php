@@ -15,4 +15,4 @@
         <p class="form-message-error"><?php check_message() ?></p>
     </form>
 </div>
-<?php $this->view("footery", $data); ?>
+<?php $this->view("footer", $data); ?>

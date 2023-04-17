@@ -22,7 +22,7 @@ class User
                 die;
             }
         } else {
-            $_SESSION['error'] = "Invalid credentials"; // TODO: Error messages
+            $_SESSION['error'] = "Invalid credential"; // TODO: Error messages
         }
     }
 
@@ -50,7 +50,7 @@ class User
                 $_SESSION['error'] = "Wrong username or password";
             }
         } else {
-            $_SESSION['error'] = "Invalid credentials"; // TODO: Error messages
+            $_SESSION['error'] = "Invalid credential"; // TODO: Error messages
         }
     }
 
@@ -61,5 +61,27 @@ class User
 
         header("Location:" . ROOT . "login");
         die;
+    }
+
+    function auth()
+    {
+        $DB = new Database();
+
+        if(isset($_SESSION['id'])) {
+            $arr['id'] = $_SESSION['id'];
+
+            $query = "select * from users where id = :id limit 1";
+            $data = $DB->read($query, $arr);
+
+            if (is_array($data)) {
+                // logged in
+                $_SESSION['id'] = $data[0]->id;
+                $_SESSION['username'] = $data[0]->username;
+
+                return true;
+            }
+
+            return false;
+        }
     }
 }

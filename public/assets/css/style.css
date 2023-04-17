@@ -134,8 +134,11 @@ header li a{
 
 /*Main links TODO: The two link break at small width */
 .main-links {
-  padding-bottom: .1em;
+  display: flex;
+  padding-bottom: 0.1em;
   border-radius: 25px;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 a.f-black:hover, a.f-black.active {
