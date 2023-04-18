@@ -6,8 +6,10 @@ Class Authentication extends Controller
     {
         $data['page_title'] = "Register";
 
-        $user = $this->loadModel("user");
-        $user->register($_POST);
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $user = $this->loadModel("user");
+            $user->register($_POST);
+        }
 
         $this->view("register", $data);
     }
@@ -16,8 +18,10 @@ Class Authentication extends Controller
     {
         $data['page_title'] = "Login";
 
-        $user = $this->loadModel("user");
-        $user->login($_POST);
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $user = $this->loadModel("user");
+            $user->login($_POST);
+        }
 
         $this->view("login", $data);
     }

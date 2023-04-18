@@ -12,7 +12,7 @@
         </div>
         <button class="submit">Příhlásit se</button>
         <p class="form-message">Nejste registrováni? <a href="<?= ROOT ?>authentication/register">Zaregistrujte se zde...</a></p>
-        <p class="form-message-error"><?php check_message() ?></p>
+        <p class="form-message-error"><?php check_message(); ?></p>
     </form>
 </div>
 <?php $this->view("footer", $data); ?>

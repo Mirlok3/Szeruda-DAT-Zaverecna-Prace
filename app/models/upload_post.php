@@ -1,6 +1,6 @@
 <?php
 
-class upload_file
+class upload_post
 {
     function upload($POST, $FILES, $SESSION)
     {
@@ -8,11 +8,9 @@ class upload_file
 
         $_SESSION['error'] = "";
 
-        $allowed[] = "image/jpeg";
-
         if (isset($POST['title']) && isset($FILES['image'])) {
             //upload image
-            if ($FILES['image']['name'] != "" && $FILES['image']['error'] == 0 && in_array($FILES['image']['type'], $allowed))
+            if ($FILES['image']['name'] != "" && $FILES['image']['error'] == 0)
             {
                 $folder = "uploads/";
                 if (!file_exists($folder)) {
@@ -36,7 +34,7 @@ class upload_file
             $data = $DB->write($query, $arr);
 
             if ($data) {
-                header("Location:" . ROOT . "home");
+                header("Location:" . ROOT . "posts");
                 die;
             }
         }

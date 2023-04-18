@@ -12,8 +12,8 @@ Class Form extends Controller
             die;
         }
 
-        if (isset($_POST['title']) && isset($_FILES['image'])) {
-            $uploader = $this->loadModel("upload_file");
+        if (isset($_POST['title']) && isset($_POST['description'])) {
+            $uploader = $this->loadModel("upload_post");
             $uploader->upload($_POST, $_FILES, $_SESSION);
         }
 

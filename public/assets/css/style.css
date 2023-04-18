@@ -132,7 +132,7 @@ header li a{
   transition: transform 0.3s ease;
 }
 
-/*Main links TODO: The two link break at small width */
+/*Main links TODO: The main links break at small width */
 .main-links {
   display: flex;
   padding-bottom: 0.1em;
@@ -163,7 +163,7 @@ a.f-black::before {
   word-wrap: break-word;
 }
 
-.main h2 {
+.home-title {
   text-align: center;
   padding-bottom: 15px;
 }
@@ -182,7 +182,7 @@ a.f-black::before {
 }
 
 .login {
-  min-width: 20vw;
+  min-width: 30vw;
 }
 
 .title-form {
@@ -278,10 +278,45 @@ label {
   min-width: 60vw;
 }
 
+.post-title {
+  display: flex;
+  font-size: 2rem;
+  padding-bottom: 1em;
+  text-align: left;
+  flex-direction: column;
+}
+
+.post-title span {
+  color: gray;
+  font-size: .75rem;
+  font-weight: 200;
+}
+
+.post-image {
+  padding: 1em;
+}
+
+.post-delete {
+  color: white;
+  background-color: red;
+  height: fit-content;
+  padding: .5em;
+  border-radius: 25px;
+  font-weight: 800;
+}
+
+.post-description {
+  white-space: pre-line;
+}
+
+.post-delete:hover {
+  color: white;
+  background-color: #C20000;
+}
+
 /* Footer ////////////////////////////////////////////////////////////////////////////////////////////////// */
 footer {
   padding: 2em;
-  box-shadow: 3px 0 12px black;
   min-height: 10vh;
 }
 

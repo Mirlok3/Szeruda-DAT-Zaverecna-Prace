@@ -9,7 +9,7 @@
             </div>
             <div class="input-container">
                 <label for="image">Vložte Obraz:</label>
-                <input name="image" class="row-input-lg input file-input" type="file" placeholder="Titulek" accept="image/jpeg"/>
+                <input name="image" class="row-input-lg input file-input" type="file" placeholder="Titulek" accept="image/*"/>
             </div>
         </div>
         <div class="input-container">

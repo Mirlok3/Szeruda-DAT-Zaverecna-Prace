@@ -14,15 +14,21 @@ class User
             $arr['email'] = $POST['email'];
             $arr['date'] = date("Y-m-d H:i:s");
 
-            $query = "insert into users (username, password, email, date) values (:username, :password, :email, :date)";
-            $data = $DB->write($query, $arr);
+            try {
+                $query = "insert into users (username, password, email, date) values (:username, :password, :email, :date)";
+                $data = $DB->write($query, $arr);
+            } catch(PDOException $e) {
+                header("Location:" . ROOT . "authentication/register");
+                $_SESSION['error'] = "Jméno je obsazeno!";
+                die;
+            }
 
             if ($data) {
                 header("Location:" . ROOT . "authentication/login");
                 die;
             }
         } else {
-            $_SESSION['error'] = "Invalid credential"; // TODO: Error messages
+            $_SESSION['error'] = "Špatně zadané údaje!";
         }
     }
 
@@ -39,7 +45,7 @@ class User
             $query = "select * from users where username = :username && password = :password";
             $data = $DB->read($query, $arr);
 
-            if (is_array($data)) {
+            if (!empty($data)) {
                 // logged in
                 $_SESSION['username'] = $data[0]->username;
                 $_SESSION['id'] = $data[0]->id;
@@ -47,10 +53,10 @@ class User
                 header("Location:" . ROOT . "home");
                 die;
             } else {
-                $_SESSION['error'] = "Wrong username or password";
+                $_SESSION['error'] = "Špatně zadané jméno nebo heslo!";
             }
         } else {
-            $_SESSION['error'] = "Invalid credential"; // TODO: Error messages
+            $_SESSION['error'] = "Špatně zadané údaje!";
         }
     }
 

@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETS ?>css/style.css">
     <title><?= $data['page_title'] . " - " . WEBSITE_NAME ?></title>
 </head>
 <body>
@@ -22,7 +19,7 @@
             <li><a href="<?= ROOT ?>posts" class="<?php active('posts');?> nav-link">Příspěvek</a></li>
             <?php if(isset($_SESSION['username'])): ?>
                 <div class="main-links white">
-                    <li><a href="<?= ROOT ?>#"
+                    <li><a href="<?= ROOT ?>index"
                            class="<?php active('#'); ?> f-black nav-link"><?= $_SESSION['username'] ?></a>
                     <li><a href="<?= ROOT ?>form"
                            class="<?php active('form');?> f-black nav-link" >Vytvořit příspěvek</a>
