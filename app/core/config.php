@@ -3,7 +3,7 @@
 define("WEBSITE_NAME", "Szeruda");
 
 define('DB_TYPE', 'mysql');
-define('DB_NAME', 'szeruda_album');
+define('DB_NAME', 'szeruda');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');
@@ -17,8 +17,6 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
 define('ROOT', str_replace("app/core", "public", $path));
 define('ASSETS', str_replace("app/core", "public/assets", $path));
 
-/*set to true to allow error reporting
-set to false when you upload online to stop error reporting*/
 define('DEBUG', true);
 
 if (DEBUG) {

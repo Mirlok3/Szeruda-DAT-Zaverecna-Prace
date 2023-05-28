@@ -19,7 +19,7 @@
             <li><a href="<?= ROOT ?>posts" class="<?php active('posts');?> nav-link">Příspěvek</a></li>
             <?php if(isset($_SESSION['username'])): ?>
                 <div class="main-links white">
-                    <li><a href="<?= ROOT ?>index"
+                    <li><a href="<?= ROOT ?>posts/profile/<?= $_SESSION['username'] ?>"
                            class="<?php active('#'); ?> f-black nav-link"><?= $_SESSION['username'] ?></a>
                     <li><a href="<?= ROOT ?>form"
                            class="<?php active('form');?> f-black nav-link" >Vytvořit příspěvek</a>

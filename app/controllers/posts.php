@@ -6,10 +6,33 @@ Class Posts extends Controller
     {
         $DB = new Database();
 
-        $data['page_title'] = "Posts";
+        $data['page_title'] = "Příspěvky";
 
         $query = "select * from posts order by id desc";
         $data['posts'] = $DB->read($query);
+
+        $this->view("posts", $data);
+    }
+
+    function show($id)
+    {
+        $DB = new Database();
+
+        $query = "select * from posts where id = :id";
+        $data['posts'] = $DB->read($query, [':id' => $id]);
+
+        $data['page_title'] = $data['posts'][0]->title;
+        $this->view("posts", $data);
+    }
+
+    function profile($username)
+    {
+        $DB = new Database();
+
+        $data['page_title'] = "Příspěvky od $username";
+
+        $query = "select * from posts where username = :username";
+        $data['posts'] = $DB->read($query, [':username' => $username]);
 
         $this->view("posts", $data);
     }
