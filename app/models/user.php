@@ -65,11 +65,11 @@ class User
         unset ($_SESSION['id']);
         unset ($_SESSION['username']);
 
-        header("Location:" . ROOT . "login");
+        header("Location:" . ROOT . "authentication/login");
         die;
     }
 
-    function auth()
+    function is_logged()
     {
         $DB = new Database();
 

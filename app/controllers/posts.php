@@ -37,9 +37,52 @@ Class Posts extends Controller
         $this->view("posts", $data);
     }
 
+    function create()
+    {
+        $data['page_title'] = "Vytvořte příspěvek";
+
+        $user = $this->loadModel("user");
+        if (!$user->is_logged()) {
+            header("Location:" . ROOT . "authentication/login");
+            die;
+        }
+
+        if (isset($_POST['title']) && isset($_POST['description'])) {
+            $uploader = $this->loadModel("post");
+            $uploader->upload($_POST, $_FILES, $_SESSION);
+        }
+
+        $this->view("create", $data);
+    }
+
+    function edit($id)
+    {
+        $DB = new Database();
+        $data['page_title'] = "Edit příspěvek $id";
+
+        $query = "select * from posts where id = :id";
+        $data['posts'] = $DB->read($query, [':id' => $id]);
+
+        if ($data['posts'][0]->username != $_SESSION['username']) header("Location:" . ROOT . "posts"); // auth
+
+        if (isset($_POST['title']) && isset($_POST['description'])) {
+            $uploader = $this->loadModel("post");
+            $uploader->update($_POST, $_FILES, $id);
+        }
+
+        $this->view("edit", $data);
+    }
+
     function delete($id)
     {
         $DB = new Database();
+
+        $query = "select * from posts where id = :id";
+        $data['posts'] = $DB->read($query, [':id' => $id]);
+        if ($data['posts'][0]->username != $_SESSION['username']) {
+            header("Location:" . ROOT . "posts");
+            die;
+        }
 
         $pdo = $DB->db_connect();
 

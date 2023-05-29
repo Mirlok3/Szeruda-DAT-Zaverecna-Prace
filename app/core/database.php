@@ -33,6 +33,7 @@ Class Database
         } else return false;
     }
 
+    // Also used for updating TODO: refactor for better naming
     public function write($query, $data = [])
     {
         $DB = $this->db_connect();

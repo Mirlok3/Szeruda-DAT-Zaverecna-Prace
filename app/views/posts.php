@@ -3,14 +3,18 @@
     <?php foreach ( $data['posts'] as $post ): ?>
         <div class="post">
             <div class="justify-between">
-                <h2 class="post-title"><a href="<?= ROOT ?>posts/show/<?= $post->id ?>"> <?= $post->title ?></a>
+                <h2 class="post-title"><a class="post-link" href="<?= ROOT ?>posts/show/<?= $post->id ?>"> <?= $post->title ?></a>
                     <span>
                            <?= date("d/m/Y h:i", strtotime($post->date)) ?>
-                           od <a href="<?= ROOT ?>posts/profile/<?= $post->username ?>"> <?= $post->username ?></a>
+                           od <a class="post-link" href="<?= ROOT ?>posts/profile/<?= $post->username ?>"> <?= $post->username ?></a>
                     </span>
                 </h2>
                 <?php if(isset($_SESSION['username']) && $post->username == $_SESSION['username'] ): ?>
-                    <a href="<?= ROOT ?>posts/delete/<?= $post->id ?>" class="post-delete"><span>Vymazat</span></a>
+                    <div>
+                        <a href="<?= ROOT ?>posts/delete/<?= $post->id ?>"
+                              class="post-button red"><span>Vymazat</span></a>
+                        <a href="<?= ROOT ?>posts/edit/<?= $post->id ?>" class="post-button blue"><span>Změnit</span></a>
+                    </div>
                 <?php endif; ?>
             </div>
             <p class="post-description">

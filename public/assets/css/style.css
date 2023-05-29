@@ -56,6 +56,10 @@ a:hover, a:focus {
   background-color: dodgerblue;
 }
 
+.red {
+  background-color: red;
+}
+
 .orange{
   background-color: orangered;
 }
@@ -273,7 +277,7 @@ label {
   background-color: #242424;
   border-radius: 25px;
   padding: 2em 3em 3em;
-  margin: 2em;
+  margin: 1.25em;
   border: gray 0.5px solid;
   min-width: 60vw;
 }
@@ -296,9 +300,8 @@ label {
   padding: 1em;
 }
 
-.post-delete {
+.post-button {
   color: white;
-  background-color: red;
   height: fit-content;
   padding: .5em;
   border-radius: 25px;
@@ -309,9 +312,13 @@ label {
   white-space: pre-line;
 }
 
-.post-delete:hover {
+.post-button:hover {
   color: white;
-  background-color: #C20000;
+  opacity: 0.8;
+}
+
+.post-link:hover {
+  color: #8585E2;
 }
 
 /* Footer ////////////////////////////////////////////////////////////////////////////////////////////////// */

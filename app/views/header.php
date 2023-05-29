@@ -20,11 +20,11 @@
             <?php if(isset($_SESSION['username'])): ?>
                 <div class="main-links white">
                     <li><a href="<?= ROOT ?>posts/profile/<?= $_SESSION['username'] ?>"
-                           class="<?php active('#'); ?> f-black nav-link"><?= $_SESSION['username'] ?></a>
-                    <li><a href="<?= ROOT ?>form"
-                           class="<?php active('form');?> f-black nav-link" >Vytvořit příspěvek</a>
+                           class="<?php active($_SESSION['username']); ?> f-black nav-link"><?= $_SESSION['username'] ?></a>
+                    <li><a href="<?= ROOT ?>posts/create"
+                           class="<?php active('create');?> f-black nav-link" >Vytvořit příspěvek</a>
                     <li><a href="<?= ROOT ?>authentication/logout"
-                           class="<?php active('logout'); ?> f-black nav-link">Odhlásit se</a>
+                           class="f-black nav-link">Odhlásit se</a>
                 </div>
             <?php else: ?>
                 <div class="main-links white">
