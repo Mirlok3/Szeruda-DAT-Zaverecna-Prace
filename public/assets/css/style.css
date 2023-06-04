@@ -56,6 +56,14 @@ a:hover, a:focus {
   background-color: dodgerblue;
 }
 
+.font-blue {
+    color: dodgerblue;
+}
+
+.font-red {
+    color: red;
+}
+
 .red {
   background-color: red;
 }
@@ -276,8 +284,8 @@ label {
 .post {
   background-color: #242424;
   border-radius: 25px;
-  padding: 2em 3em 3em;
-  margin: 1.25em;
+  padding: 2em 3em;
+  margin: 1em;
   border: gray 0.5px solid;
   min-width: 60vw;
 }
@@ -285,7 +293,6 @@ label {
 .post-title {
   display: flex;
   font-size: 2rem;
-  padding-bottom: 1em;
   text-align: left;
   flex-direction: column;
 }
@@ -319,6 +326,20 @@ label {
 
 .post-link:hover {
   color: #8585E2;
+}
+
+.post-votes {
+    display: flex;
+}
+
+.post-vote {
+    padding-top: 1em;
+}
+
+.like {
+    margin: .25em;
+    height: 25px;
+    width: 25px;
 }
 
 /* Footer ////////////////////////////////////////////////////////////////////////////////////////////////// */

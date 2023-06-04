@@ -5,10 +5,7 @@ Class Vote extends Controller
     function upVote($post_id)
     {
         $user = $this->loadModel("user");
-        if (!$user->is_logged()) {
-            header("Location:" . ROOT . "authentication/login");
-            die;
-        }
+        auth($user);
 
         $DB = new Database();
         $pdo = $DB->db_connect();
@@ -58,10 +55,7 @@ Class Vote extends Controller
     function downVote($post_id)
     {
         $user = $this->loadModel("user");
-        if (!$user->is_logged()) {
-            header("Location:" . ROOT . "authentication/login");
-            die;
-        }
+        auth($user);
 
         $DB = new Database();
         $pdo = $DB->db_connect();

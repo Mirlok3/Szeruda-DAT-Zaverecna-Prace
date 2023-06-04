@@ -18,8 +18,8 @@ Class Posts extends Controller
     {
         $DB = new Database();
 
-        $query = "select * from posts where id = :id";
-        $data['posts'] = $DB->read($query, [':id' => $id]);
+        $query = "select * from posts where id = $id";
+        $data['posts'] = $DB->read($query);
 
         $data['page_title'] = $data['posts'][0]->title;
         $this->view("posts", $data);
@@ -39,13 +39,10 @@ Class Posts extends Controller
 
     function create()
     {
-        $data['page_title'] = "Vytvořte příspěvek";
-
         $user = $this->loadModel("user");
-        if (!$user->is_logged()) {
-            header("Location:" . ROOT . "authentication/login");
-            die;
-        }
+        auth($user);
+
+        $data['page_title'] = "Vytvořte příspěvek";
 
         if (isset($_POST['title']) && isset($_POST['description'])) {
             $uploader = $this->loadModel("post");
@@ -63,7 +60,7 @@ Class Posts extends Controller
         $query = "select * from posts where id = :id";
         $data['posts'] = $DB->read($query, [':id' => $id]);
 
-        if ($data['posts'][0]->username != $_SESSION['username']) header("Location:" . ROOT . "posts"); // auth
+        auth_post($data['posts']);
 
         if (isset($_POST['title']) && isset($_POST['description'])) {
             $uploader = $this->loadModel("post");
@@ -77,18 +74,14 @@ Class Posts extends Controller
     {
         $DB = new Database();
 
-        $query = "select * from posts where id = :id";
-        $data['posts'] = $DB->read($query, [':id' => $id]); // TODO: replace :id with $id
-        if ($data['posts'][0]->username != $_SESSION['username']) {
-            header("Location:" . ROOT . "posts");
-            die;
-        }
+        $query = "select * from posts where id = $id";
+        $data['posts'] = $DB->read($query);
+        auth_post($data['posts']);
 
         $pdo = $DB->db_connect();
 
-        $query = "delete from posts where id = :id limit 1";
+        $query = "delete from posts where id = $id limit 1";
         $statement = $pdo->prepare($query);
-        $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
         header("Location:" . ROOT . "posts");

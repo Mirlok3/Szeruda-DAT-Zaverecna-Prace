@@ -23,3 +23,36 @@ function check_message()
         unset($_SESSION['error']);
     }
 }
+
+function vote_color($id, $color) {
+    if (!isset($_SESSION['id'])) return;
+    $user_id = $_SESSION['id'];
+
+    $DB = new Database();
+
+    $query = "select vote from votes where user_id = $user_id AND post_id = $id";
+    $vote = $DB->read($query);
+    if (!isset($vote[0]->vote)) return;
+    
+    if ($vote[0]->vote == -1 && $color == 'red') {
+        echo "font-red";
+        return;
+    } elseif ($vote[0]->vote == 1 && $color == 'blue') {
+        echo "font-blue";
+        return;
+    }
+}
+
+function auth($user) {
+    if (!$user->is_logged()) {
+        header("Location:" . ROOT . "authentication/login");
+        die;
+    }
+}
+
+function auth_post($data) {
+    if ($data[0]->username != $_SESSION['username']) {
+        header("Location:" . ROOT . "posts");
+        die;
+    }
+}
