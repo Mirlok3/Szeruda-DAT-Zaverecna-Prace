@@ -1,5 +1,5 @@
 <?php
-require 'app/core/config.php';
+require '/opt/lampp/htdocs/DAT/app/core/config.php';
 
 $string = DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";";
 
@@ -41,7 +41,7 @@ try {
         description VARCHAR(255),
         title VARCHAR(50) NOT NULL, 
         image VARCHAR(125) NULL,
-        votes INT NULL,
+        votes INT DEFAULT 0,
         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
         username VARCHAR(30),
         FOREIGN KEY (username) REFERENCES users(username)
@@ -54,7 +54,7 @@ try {
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         user_id INT(6) UNSIGNED,
         post_id INT(6) UNSIGNED,
-        vote INT(6),
+        vote INT,
         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (post_id) REFERENCES posts(id)

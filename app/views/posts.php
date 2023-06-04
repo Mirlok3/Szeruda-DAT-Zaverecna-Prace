@@ -23,6 +23,11 @@
             <?php if($post->image !== NULL): ?>
                 <img src="<?= ROOT . $post->image ?>" class="post-image"/>
             <?php endif; ?>
+            <div>
+              <?= $post->votes ?>
+              <a href="<?= ROOT ?>vote/upVote/<?= $post->id ?>" class="red"><span>Upvote</span></a>
+              <a href="<?= ROOT ?>vote/downVote/<?= $post->id ?>" class="blue"><span>DownVote</span></a>
+            </div>
         </div>
     <?php endforeach; ?>
 <?php $this->view("footer", $data); ?>

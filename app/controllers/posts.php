@@ -78,7 +78,7 @@ Class Posts extends Controller
         $DB = new Database();
 
         $query = "select * from posts where id = :id";
-        $data['posts'] = $DB->read($query, [':id' => $id]);
+        $data['posts'] = $DB->read($query, [':id' => $id]); // TODO: replace :id with $id
         if ($data['posts'][0]->username != $_SESSION['username']) {
             header("Location:" . ROOT . "posts");
             die;
