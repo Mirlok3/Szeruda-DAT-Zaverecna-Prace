@@ -22,7 +22,7 @@ Class Posts extends Controller
         $data['posts'] = $DB->read($query);
 
         $data['page_title'] = $data['posts'][0]->title;
-        $this->view("posts", $data);
+        $this->view("show_post", $data);
     }
 
     function profile($username)

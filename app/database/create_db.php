@@ -1,5 +1,5 @@
 <?php
-require '/opt/lampp/htdocs/DAT/app/core/config.php';
+require './app/core/config.php';
 
 $string = DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";";
 
