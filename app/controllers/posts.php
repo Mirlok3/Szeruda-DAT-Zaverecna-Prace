@@ -85,5 +85,6 @@ Class Posts extends Controller
         $statement->execute();
 
         header("Location:" . ROOT . "posts");
+        $_SESSION['message'] = "Váš příspěvek byl smazán!";
     }
 }

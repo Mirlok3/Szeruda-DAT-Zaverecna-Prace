@@ -9,6 +9,7 @@
     <title><?= $data['page_title'] . " - " . WEBSITE_NAME ?></title>
 </head>
 <body>
+    <p class="red"><?php if(isset($_SESSION['message'])): echo $_SESSION['message']; endif; $_SESSION['message'] = ""; ?></p>
     <header class="justify-between blue">
         <div>
             <h2><?= WEBSITE_NAME ?></h2>

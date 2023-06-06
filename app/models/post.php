@@ -12,10 +12,10 @@ class post
             //upload image
             if ($FILES['image']['name'] != "" && $FILES['image']['error'] == 0)
             {
-                $folder = "uploads/";
-//                if (!file_exists($folder)) {
-//                    mkdir($folder, 0777, true);
-//                }
+                $folder = "../../public/assets/images";
+                if (!file_exists($folder)) {
+                    mkdir($folder, 0777, true);
+                }
                 $destination = $folder . $FILES['image']['name'];
                 move_uploaded_file($FILES['image']['tmp_name'], $destination);
 
@@ -35,6 +35,7 @@ class post
 
             if ($data) {
                 header("Location:" . ROOT . "posts");
+                $_SESSION['message'] = "Váš příspěvek byl vytvořen!";
                 die;
             }
         }
@@ -65,6 +66,7 @@ class post
 
             if ($data) {
                 header("Location:" . ROOT . "posts");
+                $_SESSION['message'] = "Váš příspěvek byl změněn!";
                 die;
             }
         }

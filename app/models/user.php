@@ -25,6 +25,7 @@ class User
 
             if ($data) {
                 header("Location:" . ROOT . "authentication/login");
+                $_SESSION['message'] = "Děkujeme za registraci!";
                 die;
             }
         } else {
@@ -51,6 +52,7 @@ class User
                 $_SESSION['id'] = $data[0]->id;
 
                 header("Location:" . ROOT . "home");
+                $_SESSION['message'] = "Úspěšne jste se přihlásili!";
                 die;
             } else {
                 $_SESSION['error'] = "Špatně zadané jméno nebo heslo!";
@@ -66,6 +68,7 @@ class User
         unset ($_SESSION['username']);
 
         header("Location:" . ROOT . "authentication/login");
+        $_SESSION['message'] = "Úspěšne jste se odhlásili!";
         die;
     }
 
