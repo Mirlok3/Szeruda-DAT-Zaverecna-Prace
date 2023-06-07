@@ -1,5 +1,4 @@
 <?php $this->view("header", $data); ?>
-<?php include('header.php'); ?>
 <div class="form post-form">
     <form method="post" enctype="multipart/form-data">
         <h2 class="text-center title-form">Změňte příspevěk <?= $data['posts'][0]->title ?></h2>

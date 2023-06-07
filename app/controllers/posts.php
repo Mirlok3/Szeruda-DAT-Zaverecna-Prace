@@ -34,7 +34,7 @@ Class Posts extends Controller
         $query = "select * from posts where username = :username";
         $data['posts'] = $DB->read($query, [':username' => $username]);
 
-        $this->view("posts", $data);
+        $this->view("profile", $data);
     }
 
     function create()

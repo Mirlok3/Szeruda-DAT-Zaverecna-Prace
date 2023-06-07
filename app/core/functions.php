@@ -33,7 +33,7 @@ function vote_color($id, $color) {
     $query = "select vote from votes where user_id = $user_id AND post_id = $id";
     $vote = $DB->read($query);
     if (!isset($vote[0]->vote)) return;
-    
+
     if ($vote[0]->vote == -1 && $color == 'red') {
         echo "font-red";
         return;
@@ -46,6 +46,7 @@ function vote_color($id, $color) {
 function auth($user) {
     if (!$user->is_logged()) {
         header("Location:" . ROOT . "authentication/login");
+        $_SESSION['message'] = "Musíte se příhlásit!";
         die;
     }
 }

@@ -52,7 +52,7 @@ class User
                 $_SESSION['id'] = $data[0]->id;
 
                 header("Location:" . ROOT . "home");
-                $_SESSION['message'] = "Úspěšne jste se přihlásili!";
+                $_SESSION['message'] = "Úspěšně jste se přihlásili!";
                 die;
             } else {
                 $_SESSION['error'] = "Špatně zadané jméno nebo heslo!";
