@@ -20,7 +20,6 @@ html {
 
 body {
   font-family: 'Schibsted Grotesk', sans-serif;
-  background: #242424;
   min-height: 100vh;
   color: black;
 }
@@ -36,10 +35,23 @@ a {
   color: black;
 }
 
+.message {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: green;
+  padding: 1em;
+}
+
 /* Classes ////////////////////////////////////////////////////////////////////////////////////////////////// */
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.my-auto {
+  margin-bottom: auto;
+  margin-top: auto;
 }
 
 .justify-start {
@@ -112,6 +124,9 @@ a {
 .topnav {
   overflow: hidden;
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  z-index: 10;
 }
 
 .topnav a {
@@ -151,7 +166,53 @@ a {
   align-items: center;
   min-height: 90vh;
   word-wrap: break-word;
-  padding: 2em;
+  padding-bottom: 2em;
+}
+
+.home {
+  min-width: 99vw;
+  background-color: dodgerblue;
+  border-bottom: 2px gray solid;
+}
+
+.home-title {
+  text-align: center;
+  min-height: 20vh;
+  padding-top: 2em;
+  background-color: dodgerblue;
+}
+
+.home-title h1 {
+  font-size: 3rem;
+  margin-bottom: 1em;
+}
+
+.home-button {
+  background-color: white;
+  padding: .5em .75em;
+  border-radius: 10px;
+}
+
+.home-button:hover {
+  background-color: lightgray;
+}
+
+.home-content {
+  min-height: 70vh;
+  background-color: white;
+}
+
+.home-content-title {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.home-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50vw;
+  margin: auto;
 }
 
 /* Form ////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -162,6 +223,7 @@ a {
   padding: 0 1.5em 1.5em;
   border: gray 0.5px solid;
   min-width: 25vw;
+  margin-top: 2em;
 }
 
 .post-form {
@@ -253,12 +315,12 @@ label {
   cursor: pointer;
 }
 
-/* Post ////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*Post ////////////////////////////////////////////////////////////////////////////////////////////////// */
 .post {
   background-color: white;
   border-radius: 10px;
   padding: 1em 1em;
-  margin: .5em;
+  margin-top: 2em;
   border: gray 0.5px solid;
   border-left: dodgerblue 10px solid;
   min-width: 70vw;
@@ -393,4 +455,22 @@ footer ul li{
   .topnav.responsive .left-nav {
     float: left;
   }
+}
+.custom-shape-divider-bottom-1686146486 {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1686146486 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-bottom-1686146486 .shape-fill {
+  fill: #FFFFFF;
 }
