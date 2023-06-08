@@ -68,7 +68,7 @@ class User
         unset ($_SESSION['username']);
 
         header("Location:" . ROOT . "authentication/login");
-        $_SESSION['message'] = "Úspěšne jste se odhlásili!";
+        $_SESSION['message'] = "Úspěšně jste se odhlásili!";
         die;
     }
 

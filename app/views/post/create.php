@@ -1,7 +1,7 @@
 <?php $this->view("header", $data); ?>
 <div class="form post-form">
     <form method="post" enctype="multipart/form-data">
-        <h2 class="text-center title-form">Vytvořte příspevěk</h2>
+        <h2 class="text-center title-form">Vytvořte příspěvek</h2>
         <div class="justify-between">
             <div class="input-container">
                 <label for="title">Titulek:</label>

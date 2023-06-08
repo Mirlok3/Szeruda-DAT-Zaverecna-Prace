@@ -12,7 +12,7 @@ class post
             //upload image
             if ($FILES['image']['name'] != "" && $FILES['image']['error'] == 0)
             {
-                $folder = "../../public/assets/images";
+                $folder = "../../public/assets/images/";
                 if (!file_exists($folder)) {
                     mkdir($folder, 0777, true);
                 }
@@ -30,8 +30,14 @@ class post
             $arr['date'] = date("Y-m-d H:i:s");
             $arr['username'] = $SESSION['username'];
 
-            $query = "insert into posts (title, description, image, username, date ) values (:title, :description, :image, :username, :date)";
-            $data = $DB->write($query, $arr);
+            try {
+                $query = "insert into posts (title, description, image, username, date ) values (:title, :description, :image, :username, :date)";
+                $data = $DB->write($query, $arr);
+            } catch(PDOException $e) {
+                header("Location:" . ROOT . "posts/create");
+                $_SESSION['error'] = "Údaj je moc velký!";
+                die;
+            }
 
             if ($data) {
                 header("Location:" . ROOT . "posts");
@@ -60,12 +66,19 @@ class post
 
             $arr['title'] = $POST['title']; // TODO : authenticate delete
             $arr['description'] = $POST['description'];
+            $arr['id'] = $ID;
 
-            $query = "UPDATE posts SET title=:title, description=:description, image=:image WHERE id=$ID;";
-            $data = $DB->write($query, $arr);
+            try {
+                $query = "UPDATE posts SET title=:title, description=:description, image=:image WHERE id=$ID;";
+                $data = $DB->write($query, $arr);
+            } catch(PDOException $e) {
+                header("Location:" . ROOT . "posts/edit/" . $arr['id']);
+                $_SESSION['error'] = "Údaj je moc velký!";
+                die;
+            }
 
             if ($data) {
-                header("Location:" . ROOT . "posts");
+                header("Location:" . ROOT . "posts/show/". $ID);
                 $_SESSION['message'] = "Váš příspěvek byl změněn!";
                 die;
             }

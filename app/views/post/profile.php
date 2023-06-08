@@ -1,7 +1,7 @@
 <?php $this->view("header", $data); ?>
     <div class="post">
         <h2 class="post-title">
-            Příspěvky od: <?= $_SESSION['username'] ?>
+            Příspěvky od: <?= $data['posts'][0]->username ?>
         </h2>
     </div>
     <?php foreach ( $data['posts'] as $post ): ?>

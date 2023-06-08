@@ -62,6 +62,19 @@ try {
 
     $conn->exec($sql);
     echo "\nTable votes created successfully";
+
+    $sql = "CREATE TABLE comments (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        post_id INT(6) UNSIGNED,
+        content VARCHAR(255),
+        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+        username VARCHAR(30),
+        FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
+        FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+    );";
+
+    $conn->exec($sql);
+    echo "\nTable comments created successfully";
 } catch(PDOException $e) {
     echo "\n" . $e->getMessage();
 }

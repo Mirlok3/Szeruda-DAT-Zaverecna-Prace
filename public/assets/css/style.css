@@ -314,6 +314,14 @@ label {
   letter-spacing: .75px;
 }
 
+.post-comment .submit {
+  max-width: 15vw;
+}
+
+.post-comment .textarea {
+  min-width: 60vw;
+}
+
 .submit:hover, .submit:focus {
   background: dodgerblue;
   transition: all 300ms ease-in-out 0s;
@@ -351,7 +359,7 @@ label {
   filter: opacity(80%);
 }
 
-.post-button {
+.post-button { /* TODO: mobile view */
   color: white;
   height: fit-content;
   padding: .5em;
@@ -388,16 +396,26 @@ label {
 .post-show {
   background-color: white;
   border-radius: 10px;
-  padding: 1em 1em;
-  margin: .5em;
   border: gray 0.5px solid;
   border-left: dodgerblue 10px solid;
   min-width: 70vw;
+  padding: 1em 1em;
+  margin-top: 2em;
+}
+
+.post-comment {
+  background-color: white;
+  border-radius: 10px;
+  border: gray 0.5px solid;
+  border-left: dodgerblue 10px solid;
+  max-width: 70vw;
+  padding: 1em 1em;
+  margin-top: 2em;
 }
 
 .post-show-description {
   width: 50vw;
-  white-space: pre-wrap;
+  white-space: break-spaces;
   margin-bottom: 1em;
 }
 
@@ -430,7 +448,7 @@ footer ul li{
     width: 100vw;
   }
 
-  .post {
+  .post, .post-comment, .post-show{
     min-width: 100vw;
   }
 }
@@ -458,6 +476,10 @@ footer ul li{
   }
   .topnav.responsive .left-nav {
     float: left;
+  }
+
+  .post-comment .submit {
+    max-width: 100vw;
   }
 }
 .custom-shape-divider-bottom-1686146486 {

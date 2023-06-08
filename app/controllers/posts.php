@@ -11,7 +11,7 @@ Class Posts extends Controller
         $query = "select * from posts order by id desc";
         $data['posts'] = $DB->read($query);
 
-        $this->view("posts", $data);
+        $this->view("post/posts", $data);
     }
 
     function show($id)
@@ -21,8 +21,16 @@ Class Posts extends Controller
         $query = "select * from posts where id = $id";
         $data['posts'] = $DB->read($query);
 
+        if (isset($_POST['content'])) {
+            $uploader = $this->loadModel("comment");
+            $uploader->upload($_POST, $_SESSION);
+        }
+
+        $query = "select * from comments where post_id = $id";
+        $data['comments'] = $DB->read($query);
+
         $data['page_title'] = $data['posts'][0]->title;
-        $this->view("show_post", $data);
+        $this->view("post/show_post", $data);
     }
 
     function profile($username)
@@ -34,7 +42,7 @@ Class Posts extends Controller
         $query = "select * from posts where username = :username";
         $data['posts'] = $DB->read($query, [':username' => $username]);
 
-        $this->view("profile", $data);
+        $this->view("post/profile", $data);
     }
 
     function create()
@@ -49,7 +57,7 @@ Class Posts extends Controller
             $uploader->upload($_POST, $_FILES, $_SESSION);
         }
 
-        $this->view("create", $data);
+        $this->view("post/create", $data);
     }
 
     function edit($id)
@@ -67,7 +75,7 @@ Class Posts extends Controller
             $uploader->update($_POST, $_FILES, $id);
         }
 
-        $this->view("edit", $data);
+        $this->view("post/edit", $data);
     }
 
     function delete($id)
