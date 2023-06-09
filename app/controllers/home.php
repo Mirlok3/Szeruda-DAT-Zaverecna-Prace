@@ -5,7 +5,7 @@ Class Home extends Controller
     function index()
     {
         $DB = new Database();
-        $data['page_title'] = "Home";
+        $data['page_title'] = "Vítej";
 
         $query = "select * from posts order by votes desc limit 3";
         $data['posts'] = $DB->read($query);

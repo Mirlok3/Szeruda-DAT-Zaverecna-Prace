@@ -54,6 +54,7 @@ function auth($user) {
 function auth_post($data) {
     if ($data[0]->username != $_SESSION['username']) {
         header("Location:" . ROOT . "posts");
+        $_SESSION['message'] = "Nejste authorizovaní!";
         die;
     }
 }

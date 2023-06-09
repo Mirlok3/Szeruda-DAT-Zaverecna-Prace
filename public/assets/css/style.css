@@ -176,7 +176,7 @@ a {
 
 .home {
   min-width: 99vw;
-  background-color: dodgerblue;
+  background-color: white;
   border-bottom: 2px gray solid;
 }
 
@@ -205,6 +205,7 @@ a {
 .home-content {
   min-height: 70vh;
   background-color: white;
+  margin-bottom: 2em;
 }
 
 .home-content-title {
@@ -362,10 +363,11 @@ label {
 .post-button { /* TODO: mobile view */
   color: white;
   height: fit-content;
-  padding: .5em;
+  padding: .25em .45em;
   text-decoration: none;
   border-radius: 25px;
   font-weight: 800;
+  margin-bottom: .5em;
 }
 
 .post-description {
@@ -398,7 +400,7 @@ label {
   border-radius: 10px;
   border: gray 0.5px solid;
   border-left: dodgerblue 10px solid;
-  min-width: 70vw;
+  width: 70vw;
   padding: 1em 1em;
   margin-top: 2em;
 }
@@ -408,9 +410,14 @@ label {
   border-radius: 10px;
   border: gray 0.5px solid;
   border-left: dodgerblue 10px solid;
-  max-width: 70vw;
+  width: 70vw;
   padding: 1em 1em;
   margin-top: 2em;
+}
+
+.post-comments {
+  border-top: 1px solid dodgerblue;
+  padding: 1em .5em;
 }
 
 .post-show-description {
@@ -422,8 +429,8 @@ label {
 .post-show-image {
   margin-top: 1em;
   margin-bottom: 1em;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 50vw;
+  max-height: 50vh;
 }
 
 .show-like {

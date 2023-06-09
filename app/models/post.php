@@ -55,7 +55,7 @@ class post
 
         if (isset($POST['title']) && isset($FILES['image'])) { // TODO: delete old image
             if ($FILES['image']['name'] != "" && $FILES['image']['error'] == 0) {
-                $folder = "uploads/";
+                $folder = "../../public/assets/images/";
                 $destination = $folder . $FILES['image']['name'];
                 move_uploaded_file($FILES['image']['tmp_name'], $destination);
 
@@ -66,7 +66,6 @@ class post
 
             $arr['title'] = $POST['title']; // TODO : authenticate delete
             $arr['description'] = $POST['description'];
-            $arr['id'] = $ID;
 
             try {
                 $query = "UPDATE posts SET title=:title, description=:description, image=:image WHERE id=$ID;";
