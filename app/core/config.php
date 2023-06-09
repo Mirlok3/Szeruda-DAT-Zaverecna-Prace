@@ -3,7 +3,7 @@
 define("WEBSITE_NAME", "Szeruda");
 
 define('DB_TYPE', 'mysql');
-define('DB_NAME', 'szeruda');
+define('DB_NAME', 'dat_3b');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');
@@ -17,7 +17,7 @@ $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
 define('ROOT', str_replace("app/core", "public", $path));
 define('ASSETS', str_replace("app/core", "public/assets", $path));
 
-define('DEBUG', true);
+define('DEBUG', false);
 
 if (DEBUG) {
     ini_set("display_errors", 1);
